@@ -21,6 +21,8 @@ bp_target = 100 + 0.5 * age_target + 1.2 * bmi_target + np.random.normal(0, 5, n
 target_data = pd.DataFrame({'age': age_target, 'bmi': bmi_target, 'bp': bp_target})
 target_data['source'] = 'target'  # Mark the source
 
+print(target_data)
+
 # Generate larger external dataset (another hospital)
 n_external = 100
 age_external = np.random.randint(30, 90, n_external)
@@ -109,4 +111,5 @@ print("GlobalScore:", model_global.score(data[['age', 'bmi']], data['bp']))
 
 print("\nWeighted Model Coefficients:", model.coef_)
 print("Weighted Score:", model.score(X_train, y_train, sample_weight=weights))
+
 
